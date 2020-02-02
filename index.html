@@ -1,0 +1,169 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Issues</title>
+    <link data-rh="true" rel="icon" href="https://i.ibb.co/K2y2485/warning.png">
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <!-- google fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- materialize -->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+</head>
+
+<body class="grey lighten-3">
+    <!-- navbar -->
+    <nav class="z-depth-0 blue-grey darken-4">
+        <div class="nav-wrapper container">
+            <a href="#!" class="brand-logo"><i class="material-icons left">warning</i>Issues</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li class="logged-in" style="display: none;"><a href="#" class="grey-text modal-trigger"
+                        data-target="modal-account">Account</a></li>
+                <li class="logged-in" style="display: none;"><a href="#" class="grey-text" id="logout">Logout</a></li>
+                <li class="logged-in" style="display: none;"><a href="#" class="grey-text modal-trigger"
+                        data-target="modal-issue">Create
+                        issue</a></li>
+                <li class="logged-out" style="display: none;"><a href="#" class="grey-text modal-trigger"
+                        data-target="modal-signup"><i class="material-icons left">person_add</i>Register</a></li>
+                <li class="logged-out" style="display: none;"><a href="#" class="grey-text modal-trigger"
+                        data-target="modal-login"><i class="material-icons left">person</i>Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- end -->
+
+    <!-- show issues -->
+    <div class="container" style="margin-top: 40px;">
+        <ul class="collapsible z-depth-0 issues" style="border: none;">
+        </ul>
+    </div>
+    <!-- end -->
+
+    <!-- signup modal -->
+    <div id="modal-signup" class="modal">
+        <div class="modal-content">
+            <h4>Registrate</h4>
+            <form id="signup-form">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">email</i>
+                        <input id="signup-email" type="email" class="validate" required />
+                        <label for="signup-email">Email</label>
+                        <span class="helper-text" data-error="wrong" data-success="right"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">security</i>
+                        <input id="signup-password" type="password" class="validate" required />
+                        <label for="signup-password">Password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="textarea3" class="materialize-textarea" data-length="50"></textarea>
+                        <label for="textarea3">Pequeña biografía</label>
+                    </div>
+                </div>
+                <button class="btn reen lighten-2 z-depth-0">Sign up</button>
+            </form>
+        </div>
+    </div>
+    <!-- end -->
+    <!-- login modal -->
+    <div id="modal-login" class="modal">
+        <div class="modal-content">
+            <h4>Inicia sesión</h4>
+            <form id="login-form">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">email</i>
+                        <input id="login-email" type="email" class="validate" required />
+                        <label for="login-email">Email</label>
+                        <span class="helper-text" data-error="wrong" data-success="right"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">security</i>
+                        <input id="login-password" type="password" class="validate" required />
+                        <label for="login-password">Password</label>
+                    </div>
+                </div>
+                <button class="btn reen lighten-2 z-depth-0">Login</button>
+            </form>
+        </div>
+    </div>
+    <!-- end -->
+    <!-- accont modal -->
+    <div id="modal-account" class="modal">
+        <div class="modal-content center-align">
+            <h4>Detalles de cuenta</h4>
+            <div class="account-details"></div>
+        </div>
+    </div>
+    <!-- end -->
+    <!-- create issue modal -->
+    <div id="modal-issue" class="modal">
+        <div class="modal-content">
+            <h4>Registrate</h4>
+            <form id="issue-form">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">warning</i>
+                        <input id="issue-name" type="text" class="validate">
+                        <label for="issue-name">Nombre de issue</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+                        <label for="textarea2">Textarea</label>
+                    </div>
+                </div>
+                <button class="btn reen lighten-2 z-depth-0">Submit</button>
+            </form>
+        </div>
+    </div>
+    <!-- end -->
+
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+
+
+    <script type="text/javascript">
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBsgis9NI-DRIvhjq9J3QUNFVJVTMCDkWw",
+            authDomain: "issues-98c9a.firebaseapp.com",
+            databaseURL: "https://issues-98c9a.firebaseio.com",
+            projectId: "issues-98c9a",
+            appId: "1:628615474384:web:f1a727eb9d02dde5ba02d5",
+            measurementId: "G-TNDL4FM20L"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+
+        // global references
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+    </script>
+
+    <!-- external functions -->
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/auth.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+
+</html>
