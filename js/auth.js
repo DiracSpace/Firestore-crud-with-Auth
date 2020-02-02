@@ -54,12 +54,19 @@ signupForm.addEventListener('submit', (e) => {
     });
 });
 
-// signout
+// signout web
 const logout = document.querySelector('#logout');
 logout.addEventListener('click', (e) => {
     e.preventDefault();
     auth.signOut();
 });
+
+// signout mobile
+const logout2 = document.querySelector("#logout-mobile");
+logout2.addEventListener('click', (e) => {
+    e.preventDefault();
+    auth.signOut();
+})
 
 // login 
 const loginForm = document.querySelector('#login-form');
