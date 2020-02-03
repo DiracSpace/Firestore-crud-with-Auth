@@ -1,2 +1,1 @@
-# diracspace.github.io
-Firestore auth issue website
+Live demo -> https://github-livedemos.000webhostapp.com/Issues-webapp/index.html
